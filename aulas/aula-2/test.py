@@ -2,14 +2,11 @@ import unittest
 from sistema_bancario import *
 
 class TestHelper():
-    def create_transaction(ammount_reais: int, transaction_type: str) -> Entrada | Saida:
-        if transation_type == "entrada": return Entrada(Moeda.BRL, 100*ammount_reais)
-        if transation_type == "saida": return Saida(Moeda.BRL, 100*ammount_reais)
-        else: raise ValueError("Tipo de transação inválida")
-
+    @staticmethod
     def create_ammount(ammount: int) -> Dinheiro:
         return Dinheiro(Moeda.BRL, 1500, 0)
 
+    @staticmethod
     def create_valor_monetario_fracionado(quantia: int) -> ValorMonetario:
         return ValorMonetario(Moeda.BRL, quantia)
 
@@ -61,7 +58,7 @@ class TestCriacao(unittest.TestCase):
         self.assertEqual(moeda.simbolo(), "R$")
         # Fixture Teardown
 
-    def test_valor_monetario_com_fracao_suficiente_para_completar_unidades(self):
+    def test_valor_monetario_com_fracao_suficiente_para_completar_unidades_parte_inteira(self):
         # Delegated Fixture Setup
         valor = TestHelper.create_valor_monetario_fracionado(1050).obter_quantia()
         # SUT Exercise
@@ -108,7 +105,6 @@ class TestCriacao(unittest.TestCase):
         # Result Verification
         self.assertTrue(is_negative)
         # Fixture Teardown
-
 
     def test_formatacao_reais_valor_monetario(self):
         # Inline Fixture Setup
@@ -157,7 +153,7 @@ class TestTransactionsOnBanco1(unittest.TestCase):
 
     def test_conta_com_saldo_apos_receber_transacao(self):
         # Implicit Fixture Setup
-        # Fixture Setup
+        # Inline Fixture Setup
         entrada = Entrada(Dinheiro(Moeda.BRL, 1500, 0))
         # SUT Exercise
         self.account_test.adicionar_transacao(entrada)
@@ -167,7 +163,7 @@ class TestTransactionsOnBanco1(unittest.TestCase):
 
     def test_sacar_em_conta_sem_saldo(self):
         # Implicit Fixture Setup
-        # Fixture Setup
+        # Inline Fixture Setup
         quantia = Dinheiro(Moeda.BRL, 1500, 0)
         # SUT Exercise
         resultado = self.sistema.sacar(self.account_test, quantia)
