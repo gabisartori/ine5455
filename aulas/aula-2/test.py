@@ -87,7 +87,6 @@ class TestCriacao(unittest.TestCase):
         # Fixture Teardown
 
     def test_criar_transacao(self):
-        # Implicit Fixture Setup
         # Inline Fixture Setup
         valor = Dinheiro(Moeda.BRL, 1500, 0)
         # SUT Exercise
@@ -97,7 +96,6 @@ class TestCriacao(unittest.TestCase):
         # Fixture Teardown
 
     def test_sinal_negativo_para_valor_monetario(self):
-        # Implicit Fixture Setup
         # Inline Fixture Setup
         valor = ValorMonetario(Moeda.BRL, -1500*100)
         # SUT Exercise
