@@ -22,6 +22,6 @@ class ClasseTestes(unittest.TestCase):
   def test_trocar_com_tile_fora_do_tabuleiro(self):
     game = PuzzleGame(3)
     TestingShufflerPuzzleGame3x3To1X3425786().shuffle(game)
-    game.dic_positions_of_tiles.update({6: (30, 3)})
-    success = game.move_tile(6)
+    game.dic_positions_of_tiles.update({60: (30, 3)})
+    success = game.move_tile(60)
     self.assertFalse(success)
