@@ -1,0 +1,5 @@
+conteudo.puzzle_game.xǁPuzzleGameǁmove_tile__mutmut_3
+conteudo.puzzle_game.xǁPuzzleGameǁmove_tile__mutmut_20
+conteudo.puzzle_game.xǁPuzzleGameǁget_tile__mutmut_2
+conteudo.puzzle_game.xǁPuzzleGameǁget_tile__mutmut_3
+conteudo.puzzle_game.xǁPuzzleGameǁget_tile__mutmut_10
