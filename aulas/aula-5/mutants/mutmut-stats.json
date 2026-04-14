@@ -1,0 +1,156 @@
+{
+    "tests_by_mangled_function_name": {
+        "conteudo.puzzle_game.x\u01c1PuzzleGame\u01c1__init__": [
+            "tests/test_old.py::ClasseTestes::test_get_valid_tile",
+            "tests/test_new.py::ClasseTestes::test_get_tile_outside_board_with_negative_line_and_valid_column",
+            "tests/test_new.py::ClasseTestes::test_get_valid_tile_at_line_of_empty_position",
+            "tests/test_old.py::ClasseTestes::test_get_empty_position",
+            "tests/test_new.py::ClasseTestes::test_get_tile_at_last_line",
+            "tests/test_old.py::ClasseTestes::test_get_tile_outside_board",
+            "tests/test_new.py::ClasseTestes::test_get_tile_at_last_column",
+            "tests/test_new.py::ClasseTestes::test_get_tile_at_line_greater_than_0_but_invalid_column",
+            "tests/test_new.py::ClasseTestes::test_get_tile_at_column_0_valid_line",
+            "tests/test_new.py::ClasseTestes::test_get_tile_at_line_0_valid_column"
+        ],
+        "board.x\u01c1Board\u01c1positions_are_adjacent": [
+            "tests/test_old.py::ClasseTestes::test_get_valid_tile",
+            "tests/test_new.py::ClasseTestes::test_get_tile_outside_board_with_negative_line_and_valid_column",
+            "tests/test_new.py::ClasseTestes::test_get_valid_tile_at_line_of_empty_position",
+            "tests/test_old.py::ClasseTestes::test_get_empty_position",
+            "tests/test_new.py::ClasseTestes::test_get_tile_at_last_line",
+            "tests/test_old.py::ClasseTestes::test_get_tile_outside_board",
+            "tests/test_new.py::ClasseTestes::test_get_tile_at_last_column",
+            "tests/test_new.py::ClasseTestes::test_get_tile_at_line_greater_than_0_but_invalid_column",
+            "tests/test_new.py::ClasseTestes::test_get_tile_at_column_0_valid_line",
+            "tests/test_new.py::ClasseTestes::test_get_tile_at_line_0_valid_column"
+        ],
+        "conteudo.puzzle_game.x\u01c1PuzzleGame\u01c1__put_tiles_in_the_board__": [
+            "tests/test_old.py::ClasseTestes::test_get_valid_tile",
+            "tests/test_new.py::ClasseTestes::test_get_tile_outside_board_with_negative_line_and_valid_column",
+            "tests/test_new.py::ClasseTestes::test_get_valid_tile_at_line_of_empty_position",
+            "tests/test_old.py::ClasseTestes::test_get_empty_position",
+            "tests/test_new.py::ClasseTestes::test_get_tile_at_last_line",
+            "tests/test_old.py::ClasseTestes::test_get_tile_outside_board",
+            "tests/test_new.py::ClasseTestes::test_get_tile_at_last_column",
+            "tests/test_new.py::ClasseTestes::test_get_tile_at_line_greater_than_0_but_invalid_column",
+            "tests/test_new.py::ClasseTestes::test_get_tile_at_column_0_valid_line",
+            "tests/test_new.py::ClasseTestes::test_get_tile_at_line_0_valid_column"
+        ],
+        "board.x\u01c1Board\u01c1put_tile": [
+            "tests/test_old.py::ClasseTestes::test_get_valid_tile",
+            "tests/test_new.py::ClasseTestes::test_get_tile_outside_board_with_negative_line_and_valid_column",
+            "tests/test_new.py::ClasseTestes::test_get_valid_tile_at_line_of_empty_position",
+            "tests/test_old.py::ClasseTestes::test_get_empty_position",
+            "tests/test_new.py::ClasseTestes::test_get_tile_at_last_line",
+            "tests/test_old.py::ClasseTestes::test_get_tile_outside_board",
+            "tests/test_new.py::ClasseTestes::test_get_tile_at_last_column",
+            "tests/test_new.py::ClasseTestes::test_get_tile_at_line_greater_than_0_but_invalid_column",
+            "tests/test_new.py::ClasseTestes::test_get_tile_at_column_0_valid_line",
+            "tests/test_new.py::ClasseTestes::test_get_tile_at_line_0_valid_column"
+        ],
+        "board.x\u01c1Board\u01c1is_inside_the_board": [
+            "tests/test_old.py::ClasseTestes::test_get_valid_tile",
+            "tests/test_new.py::ClasseTestes::test_get_tile_outside_board_with_negative_line_and_valid_column",
+            "tests/test_new.py::ClasseTestes::test_get_valid_tile_at_line_of_empty_position",
+            "tests/test_old.py::ClasseTestes::test_get_empty_position",
+            "tests/test_new.py::ClasseTestes::test_get_tile_at_last_line",
+            "tests/test_old.py::ClasseTestes::test_get_tile_outside_board",
+            "tests/test_new.py::ClasseTestes::test_get_tile_at_last_column",
+            "tests/test_new.py::ClasseTestes::test_get_tile_at_line_greater_than_0_but_invalid_column",
+            "tests/test_new.py::ClasseTestes::test_get_tile_at_column_0_valid_line",
+            "tests/test_new.py::ClasseTestes::test_get_tile_at_line_0_valid_column"
+        ],
+        "board.x\u01c1Board\u01c1get_tile": [
+            "tests/test_old.py::ClasseTestes::test_get_valid_tile",
+            "tests/test_new.py::ClasseTestes::test_get_tile_outside_board_with_negative_line_and_valid_column",
+            "tests/test_new.py::ClasseTestes::test_get_valid_tile_at_line_of_empty_position",
+            "tests/test_old.py::ClasseTestes::test_get_empty_position",
+            "tests/test_new.py::ClasseTestes::test_get_tile_at_last_line",
+            "tests/test_old.py::ClasseTestes::test_get_tile_outside_board",
+            "tests/test_new.py::ClasseTestes::test_get_tile_at_last_column",
+            "tests/test_new.py::ClasseTestes::test_get_tile_at_line_greater_than_0_but_invalid_column",
+            "tests/test_new.py::ClasseTestes::test_get_tile_at_column_0_valid_line",
+            "tests/test_new.py::ClasseTestes::test_get_tile_at_line_0_valid_column"
+        ],
+        "conteudo.puzzle_game.x\u01c1PuzzleGame\u01c1get_tile": [
+            "tests/test_old.py::ClasseTestes::test_get_valid_tile",
+            "tests/test_new.py::ClasseTestes::test_get_tile_outside_board_with_negative_line_and_valid_column",
+            "tests/test_new.py::ClasseTestes::test_get_valid_tile_at_line_of_empty_position",
+            "tests/test_old.py::ClasseTestes::test_get_empty_position",
+            "tests/test_new.py::ClasseTestes::test_get_tile_at_last_line",
+            "tests/test_old.py::ClasseTestes::test_get_tile_outside_board",
+            "tests/test_new.py::ClasseTestes::test_get_tile_at_last_column",
+            "tests/test_new.py::ClasseTestes::test_get_tile_at_line_greater_than_0_but_invalid_column",
+            "tests/test_new.py::ClasseTestes::test_get_tile_at_column_0_valid_line",
+            "tests/test_new.py::ClasseTestes::test_get_tile_at_line_0_valid_column"
+        ],
+        "board.x\u01c1Board\u01c1__init__": [
+            "tests/test_old.py::ClasseTestes::test_get_valid_tile",
+            "tests/test_new.py::ClasseTestes::test_get_tile_outside_board_with_negative_line_and_valid_column",
+            "tests/test_new.py::ClasseTestes::test_get_valid_tile_at_line_of_empty_position",
+            "tests/test_old.py::ClasseTestes::test_get_empty_position",
+            "tests/test_new.py::ClasseTestes::test_get_tile_at_last_line",
+            "tests/test_old.py::ClasseTestes::test_get_tile_outside_board",
+            "tests/test_new.py::ClasseTestes::test_get_tile_at_last_column",
+            "tests/test_new.py::ClasseTestes::test_get_tile_at_line_greater_than_0_but_invalid_column",
+            "tests/test_new.py::ClasseTestes::test_get_tile_at_column_0_valid_line",
+            "tests/test_new.py::ClasseTestes::test_get_tile_at_line_0_valid_column"
+        ],
+        "conteudo.puzzle_game.x\u01c1PuzzleGame\u01c1move_tile_from_a_position_to_the_empty_position": [
+            "tests/test_old.py::ClasseTestes::test_get_valid_tile",
+            "tests/test_new.py::ClasseTestes::test_get_tile_outside_board_with_negative_line_and_valid_column",
+            "tests/test_new.py::ClasseTestes::test_get_valid_tile_at_line_of_empty_position",
+            "tests/test_old.py::ClasseTestes::test_get_empty_position",
+            "tests/test_new.py::ClasseTestes::test_get_tile_at_last_line",
+            "tests/test_old.py::ClasseTestes::test_get_tile_outside_board",
+            "tests/test_new.py::ClasseTestes::test_get_tile_at_last_column",
+            "tests/test_new.py::ClasseTestes::test_get_tile_at_line_greater_than_0_but_invalid_column",
+            "tests/test_new.py::ClasseTestes::test_get_tile_at_column_0_valid_line",
+            "tests/test_new.py::ClasseTestes::test_get_tile_at_line_0_valid_column"
+        ],
+        "conteudo.puzzle_game.x\u01c1PuzzleGame\u01c1__generate_list_of_tiles__": [
+            "tests/test_old.py::ClasseTestes::test_get_valid_tile",
+            "tests/test_new.py::ClasseTestes::test_get_tile_outside_board_with_negative_line_and_valid_column",
+            "tests/test_new.py::ClasseTestes::test_get_valid_tile_at_line_of_empty_position",
+            "tests/test_old.py::ClasseTestes::test_get_empty_position",
+            "tests/test_new.py::ClasseTestes::test_get_tile_at_last_line",
+            "tests/test_old.py::ClasseTestes::test_get_tile_outside_board",
+            "tests/test_new.py::ClasseTestes::test_get_tile_at_last_column",
+            "tests/test_new.py::ClasseTestes::test_get_tile_at_line_greater_than_0_but_invalid_column",
+            "tests/test_new.py::ClasseTestes::test_get_tile_at_column_0_valid_line",
+            "tests/test_new.py::ClasseTestes::test_get_tile_at_line_0_valid_column"
+        ],
+        "conteudo.puzzle_game.x\u01c1PuzzleGame\u01c1__put_tiles_in_dic_positions__": [
+            "tests/test_old.py::ClasseTestes::test_get_valid_tile",
+            "tests/test_new.py::ClasseTestes::test_get_tile_outside_board_with_negative_line_and_valid_column",
+            "tests/test_new.py::ClasseTestes::test_get_valid_tile_at_line_of_empty_position",
+            "tests/test_old.py::ClasseTestes::test_get_empty_position",
+            "tests/test_new.py::ClasseTestes::test_get_tile_at_last_line",
+            "tests/test_old.py::ClasseTestes::test_get_tile_outside_board",
+            "tests/test_new.py::ClasseTestes::test_get_tile_at_last_column",
+            "tests/test_new.py::ClasseTestes::test_get_tile_at_line_greater_than_0_but_invalid_column",
+            "tests/test_new.py::ClasseTestes::test_get_tile_at_column_0_valid_line",
+            "tests/test_new.py::ClasseTestes::test_get_tile_at_line_0_valid_column"
+        ],
+        "invalid_position_exception.x\u01c1InvalidPositionException\u01c1__init__": [
+            "tests/test_new.py::ClasseTestes::test_get_tile_outside_board_with_negative_line_and_valid_column",
+            "tests/test_old.py::ClasseTestes::test_get_tile_outside_board",
+            "tests/test_new.py::ClasseTestes::test_get_tile_at_line_greater_than_0_but_invalid_column",
+            "tests/test_new.py::ClasseTestes::test_get_tile_at_column_0_valid_line",
+            "tests/test_new.py::ClasseTestes::test_get_tile_at_line_0_valid_column"
+        ]
+    },
+    "duration_by_test": {
+        "tests/test_old.py::ClasseTestes::test_get_empty_position": 0.0009743470000103116,
+        "tests/test_old.py::ClasseTestes::test_get_tile_outside_board": 0.0007088579999958711,
+        "tests/test_old.py::ClasseTestes::test_get_valid_tile": 0.0006437709999431718,
+        "tests/test_new.py::ClasseTestes::test_get_tile_at_line_greater_than_0_but_invalid_column": 0.0016268660001514945,
+        "tests/test_new.py::ClasseTestes::test_get_tile_at_last_line": 0.0017352040003970615,
+        "tests/test_new.py::ClasseTestes::test_get_valid_tile_at_line_of_empty_position": 0.0015411549998134433,
+        "tests/test_new.py::ClasseTestes::test_get_tile_outside_board_with_negative_line_and_valid_column": 0.002039737999893987,
+        "tests/test_new.py::ClasseTestes::test_get_tile_at_line_0_valid_column": 0.0010562750003373367,
+        "tests/test_new.py::ClasseTestes::test_get_tile_at_column_0_valid_line": 0.000987714000075357,
+        "tests/test_new.py::ClasseTestes::test_get_tile_at_last_column": 0.0007378279997283244
+    },
+    "stats_time": 0.880836466
+}
