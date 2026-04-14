@@ -69,3 +69,40 @@ class ClasseTestes(unittest.TestCase):
     tile = game.get_tile(1, 3)
     self.assertEqual(tile, 3)
 
+  # Testes da move_tile
+  def test_movimento_com_sucesso(self):
+    game = PuzzleGame(3)
+    TestingShufflerPuzzleGame3x3To12345X786().shuffle(game)
+    success = game.move_tile(5)
+    self.assertTrue(success)
+
+  def test_trocar_com_tile_dentro_do_tabuleiro_mas_nao_adjacente(self):
+    game = PuzzleGame(3)
+    TestingShufflerPuzzleGame3x3To1234X5786().shuffle(game)
+    success = game.move_tile(1)
+    self.assertFalse(success)
+  
+  def test_trocar_com_tile_fora_do_tabuleiro(self):
+    game = PuzzleGame(3)
+    TestingShufflerPuzzleGame3x3To1X3425786().shuffle(game)
+    game.dic_positions_of_tiles.update({60: (30, 3)})
+    success = game.move_tile(60)
+    self.assertFalse(success)
+
+  def test_verifica_tile_apos_movimento(self):
+    # Mata Mutante 9
+    game = PuzzleGame(3)
+    TestingShufflerPuzzleGame3x3To12345X786().shuffle(game)
+    success = game.move_tile(5)
+    self.assertTrue(success)
+    self.assertEqual(game.get_tile(2, 3), 5)
+
+  def test_movimento_com_sucesso_verifica_peça_movida(self):
+    # Mata mutante 8
+    # Nesse caso, o tile 8 está na posição 3, 2. Mas o mutante irá ler como se estivess na posição 3, 3.
+    # A posição vazia nesse tabuleiro é a 2, 2. A posição 3, 2 é adjacente mas a 3, 3 não.
+    game = PuzzleGame(3)
+    TestingShufflerPuzzleGame3x3To1234X5786().shuffle(game)
+    success = game.move_tile(8)
+    self.assertTrue(success)
+ 

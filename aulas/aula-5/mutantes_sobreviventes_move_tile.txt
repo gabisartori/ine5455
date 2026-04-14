@@ -1,0 +1,29 @@
+Mutante 8
+Substituiu a leitura da linha pelo segundo valor lido, ou seja a coluna.
+Pode ser identificado por um teste que move um tile em uma posição com linha diferente da coluna
+# conteudo.puzzle_game.xǁPuzzleGameǁmove_tile__mutmut_3: survived
+--- conteudo/puzzle_game.py
++++ conteudo/puzzle_game.py
+@@ -1,5 +1,5 @@
+ def move_tile(self, tile):
+-    tile_line = self.dic_positions_of_tiles.get(tile)[0]
++    tile_line = self.dic_positions_of_tiles.get(tile)[1]
+     tile_column = self.dic_positions_of_tiles.get(tile)[1]
+     if self.board.is_inside_the_board(tile_line, tile_column) and self.board.positions_are_adjacent(tile_line, tile_column, self.line_of_empty_position, self.column_of_empty_position):
+         self.board.put_tile(tile, self.line_of_empty_position, self.column_of_empty_position)
+
+Mutante 9
+Preenche a posição alterada com valor nulo em vez de usar o tile movido
+Pode ser identificado verificando se o tile movido está realmente posicionado após o movimento
+# conteudo.puzzle_game.xǁPuzzleGameǁmove_tile__mutmut_20: survived
+--- conteudo/puzzle_game.py
++++ conteudo/puzzle_game.py
+@@ -2,7 +2,7 @@
+     tile_line = self.dic_positions_of_tiles.get(tile)[0]
+     tile_column = self.dic_positions_of_tiles.get(tile)[1]
+     if self.board.is_inside_the_board(tile_line, tile_column) and self.board.positions_are_adjacent(tile_line, tile_column, self.line_of_empty_position, self.column_of_empty_position):
+-        self.board.put_tile(tile, self.line_of_empty_position, self.column_of_empty_position)
++        self.board.put_tile(None, self.line_of_empty_position, self.column_of_empty_position)
+         self.dic_positions_of_tiles.update({tile: (self.line_of_empty_position, self.column_of_empty_position)})
+         self.line_of_empty_position = tile_line
+         self.column_of_empty_position = tile_column
