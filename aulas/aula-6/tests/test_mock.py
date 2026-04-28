@@ -42,8 +42,8 @@ class TestGameWithMock(unittest.TestCase):
     self.assertEqual(value, "Game not finished")
 
   def test_game_finished(self):
-    self.game.__move_empty_cell_to_right__()
-    self.game.__move_empty_cell_to_down__()
+    self.game.move_empty_tile("RIGHT")
+    self.game.move_empty_tile("DOWN")
     value = self.game.end_of_the_game()
     self.assertEqual(value, "Saved")
 
@@ -57,14 +57,10 @@ class TestGameWithMock(unittest.TestCase):
   def test_game_finished_mocked(self, puzzle_game_with_player_save_game_to_file_mock: Mock):
     puzzle_game_with_player_save_game_to_file_mock.return_value = "Saved"
     
-    self.game.__move_empty_cell_to_right__()
-    self.game.__move_empty_cell_to_down__()
+    self.game.move_empty_tile("RIGHT")
+    self.game.move_empty_tile("DOWN")
     value = self.game.end_of_the_game()
     self.assertEqual(value, "Saved")
-
-
-
-
 
 if __name__ == '__main__':
   unittest.main()
