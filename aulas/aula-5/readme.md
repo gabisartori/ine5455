@@ -24,7 +24,7 @@ get_tile:
 
 # Execução
 ## Apenas com testes antigos
-Basta executar
+Apague a pastas `mutants/tests` para garantir que a cache dos testes não utilize os novos testes prematuramente
 
 ```bash
 PYTHONPATH=src:tests mutmut run
