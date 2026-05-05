@@ -38,7 +38,7 @@ Pode ser identificado ao adicionar um caso de teste buscando o tabuleiro na linh
 -    if line > 0 and line <= self.board.number_of_lines and \
 +    if line >= 0 and line <= self.board.number_of_lines and \
                  column > 0 and column <= self.board.number_of_columns:
-         if line == self.line_of_empty_position and \conteudo.puzzle_game.xǁPuzzleGameǁget_tile__mutmut_10
+         if line == self.line_of_empty_position and \
                  column == self.column_of_empty_position:
 
 Mutante 4
