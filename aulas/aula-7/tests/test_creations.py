@@ -1,6 +1,7 @@
 import unittest
 from src.company import Company
 from src.employee import Employee
+from src.project import Project
 
 class TestCreation(unittest.TestCase):
   def test_create_company(self):
