@@ -4,3 +4,6 @@ class Company:
   
   def get_name(self) -> str:
     return self.name
+
+  def add_project(self, project):
+    project.company = self.name
