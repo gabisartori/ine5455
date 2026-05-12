@@ -15,3 +15,9 @@ class TestCreation(unittest.TestCase):
   def test_create_project(self):
     project = Project("Site de inscrição de alunos")
     self.assertEqual("Site de inscrição de alunos", project.get_title())
+
+  def test_create_project_and_verify_attribution_to_company(self):
+    company = Company("W")
+    project = Project("Site de alunos")
+    company.add_project(project)
+    self.assertEqual("W", project.get_company())
