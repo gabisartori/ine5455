@@ -6,6 +6,8 @@ class TestCreation(unittest.TestCase):
     company = Company("W")
     self.assertEqual("W", company.get_name())
 
-  # def test_create_employee(self):
+  def test_create_employee(self):
+    employee = Employee("João")
+    self.assertEqual("João", employee.get_name())
   # def test_create_project(self):
 
