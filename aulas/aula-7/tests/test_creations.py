@@ -11,5 +11,6 @@ class TestCreation(unittest.TestCase):
     employee = Employee("João")
     self.assertEqual("João", employee.get_name())
 
-  # def test_create_project(self):
-
+  def test_create_project(self):
+    project = Project("Site de inscrição de alunos")
+    self.assertEqual("Site de inscrição de alunos", project.get_title())
