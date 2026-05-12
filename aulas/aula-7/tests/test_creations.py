@@ -1,4 +1,5 @@
 import unittest
+from src.company import Company
 
 class TestCreation(unittest.TestCase):
   def test_create_company(self):
