@@ -73,3 +73,15 @@ class TestCreation(unittest.TestCase):
 
     self.assertEqual(employee_1, project.get_employees()[0])
     self.assertEqual(employee_2, project.get_employees()[1])
+
+  def test_assign_employee_to_project_their_already_assigned_to(self):
+    company = Company("W")
+    employee_1 = Employee("João")
+    company.add_employee(employee_1)
+    project = Project("Site legal")
+    company.add_project(project)
+
+    project.add_employee(employee_1)
+    with self.assertRaises(ValueError):
+      project.add_employee(employee_1)
+
