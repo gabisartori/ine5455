@@ -85,3 +85,10 @@ class TestCreation(unittest.TestCase):
     with self.assertRaises(ValueError):
       project.add_employee(employee_1)
 
+  def test_repeat_employee_addition_to_company(self):
+    company = Company("W")
+    employee_1 = Employee("João")
+    company.add_employee(employee_1)
+    with self.assertRaises(ValueError):
+      company.add_employee(employee_1)
+
