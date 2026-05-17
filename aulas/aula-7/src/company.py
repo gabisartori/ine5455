@@ -10,6 +10,7 @@ class Company:
     project.company = self
   
   def add_employee(self, employee):
+    if employee in self.employees: raise ValueError
     self.employees.append(employee)
     employee.company = self
 
