@@ -26,11 +26,15 @@ class TestCreation(unittest.TestCase):
     company = Company("W")
     project = Project("Site de alunos")
     company.add_project(project)
-    self.assertEqual("W", project.get_company())
+    self.assertEqual("W", project.get_company().get_name())
 
   def test_assign_employee_to_project(self):
+    company = Company("W")
     project = Project("Site de alunos")
     employee = Employee("João")
+    company.add_employee(employee)
+    company.add_project(project)
+
     project.add_employee(employee)
     self.assertEqual("Site de alunos", employee.get_projects()[0].get_title())
     self.assertEqual("João", project.get_employees()[0].get_name())

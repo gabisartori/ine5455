@@ -7,7 +7,7 @@ class Company:
     return self.name
 
   def add_project(self, project):
-    project.company = self.name
+    project.company = self
   
   def add_employee(self, employee):
     self.employees.append(employee)
