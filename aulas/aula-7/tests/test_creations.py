@@ -47,3 +47,13 @@ class TestCreation(unittest.TestCase):
     company.add_project(project)
     with self.assertRaises(ValueError):
       project.add_employee(employee)
+
+  def test_company_can_have_multiple_employees(self):
+    company = Company("W")
+    employee_1 = Employee("João")
+    employee_2 = Employee("Maria")
+    company.add_employee(employee_1)
+    company.add_employee(employee_2)
+
+    self.assertEqual(employee_1, company.get_employees()[0])
+    self.assertEqual(employee_2, company.get_employees()[1])
