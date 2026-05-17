@@ -21,7 +21,6 @@ class TestCreation(unittest.TestCase):
     employee = Employee("João")
     company.add_employee(employee)
     self.assertEqual("João", company.get_employees()[0].get_name())
-    
 
   def test_create_project_and_verify_attribution_to_company(self):
     company = Company("W")
@@ -35,3 +34,12 @@ class TestCreation(unittest.TestCase):
     project.add_employee(employee)
     self.assertEqual("Site de alunos", employee.get_projects()[0].get_title())
     self.assertEqual("João", project.get_employees()[0].get_name())
+
+  def test_assign_inexistent_employee_to_project(self):
+    """This test should fail since the created employee has not been registred as one of the company's employees"""
+    company = Company("W")
+    project = Project("Site de alunos")
+    employee = Employee("João")
+    company.add_project(project)
+    with self.assertRaises(ValueError):
+      project.add_employee(employee)
