@@ -2,6 +2,7 @@ class Employee:
   def __init__(self, name: str):
     self.name: str = name
     self.projects: list = []
+    self.company = None
 
   def add_project(self, project):
     self.projects.append(project)
