@@ -16,6 +16,13 @@ class TestCreation(unittest.TestCase):
     project = Project("Site de inscrição de alunos")
     self.assertEqual("Site de inscrição de alunos", project.get_title())
 
+  def test_add_employee_to_company(self):
+    company = Company("W")
+    employee = Employee("João")
+    company.add_employee(employee)
+    self.assertEqual("João", company.get_employees()[0].get_name())
+    
+
   def test_create_project_and_verify_attribution_to_company(self):
     company = Company("W")
     project = Project("Site de alunos")
