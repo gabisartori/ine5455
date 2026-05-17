@@ -5,12 +5,11 @@ class Project:
     self.employees: list = []
 
   def add_employee(self, employee):
-    if employee in self.company.get_employees():
-      self.employees.append(employee)
-      employee.add_project(self)
-    else:
-      raise ValueError
-
+    if employee not in self.company.get_employees(): raise ValueError
+    if employee in self.employees: raise ValueError
+    self.employees.append(employee)
+    employee.add_project(self)
+ 
   def get_title(self) -> str:
     return self.title
 
