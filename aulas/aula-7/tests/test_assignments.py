@@ -101,6 +101,7 @@ class TestAssignments(unittest.TestCase):
     company.add_project(project)
     company.add_employee(employee)
     task = Task("Bug na tela inicial")
+    project.add_employee(employee)
     project.add_task(task)
 
     task.assign_to(employee)

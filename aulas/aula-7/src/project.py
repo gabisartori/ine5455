@@ -15,6 +15,7 @@ class Project:
  
   def add_task(self, task):
     self.tasks.append(task)
+    task.project = self
 
   def get_title(self) -> str:
     return self.title

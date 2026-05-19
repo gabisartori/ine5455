@@ -8,8 +8,11 @@ class Task:
     self.title: str = title
     self.status: TaskStatus = TaskStatus.OPEN
     self.owner = None
+    self.project = None
 
   def assign_to(self, employee):
+    if employee not in self.project.get_employees():
+      raise ValueError
     employee.add_task(self)
     self.owner = employee
 
