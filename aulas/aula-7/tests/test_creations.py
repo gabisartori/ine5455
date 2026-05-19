@@ -2,7 +2,7 @@ import unittest
 from src.company import Company
 from src.employee import Employee
 from src.project import Project
-from src.task import Task
+from src.task import Task, TaskStatus
 
 class TestCreation(unittest.TestCase):
   def test_create_company(self):
@@ -20,3 +20,7 @@ class TestCreation(unittest.TestCase):
   def test_create_task(self):
     task = Task("Corrigir bug na página inicial")
     self.assertEqual("Corrigir bug na página inicial", task.get_title())
+  
+  def test_task_starts_with_open_status(self):
+    task = Task("Corrigir bug na página incial")
+    self.assertEqual(TaskStatus.OPEN, task.get_status())
