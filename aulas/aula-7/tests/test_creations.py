@@ -2,6 +2,7 @@ import unittest
 from src.company import Company
 from src.employee import Employee
 from src.project import Project
+from src.task import Task
 
 class TestCreation(unittest.TestCase):
   def test_create_company(self):
