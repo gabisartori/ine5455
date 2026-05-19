@@ -15,3 +15,7 @@ class TestCreation(unittest.TestCase):
   def test_create_project(self):
     project = Project("Site de inscrição de alunos")
     self.assertEqual("Site de inscrição de alunos", project.get_title())
+
+  def test_create_task(self):
+    task = Task("Corrigir bug na página inicial")
+    self.assertEqual("Corrigir bug na página inicial", task.get_title())
