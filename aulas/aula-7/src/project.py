@@ -3,6 +3,7 @@ class Project:
     self.title: str = title
     self.company = None
     self.employees: list = []
+    self.tasks: list = []
 
   def add_employee(self, employee):
     if employee not in self.company.get_employees():
@@ -12,6 +13,9 @@ class Project:
     self.employees.append(employee)
     employee.add_project(self)
  
+  def add_task(self, task):
+    self.tasks.append(task)
+
   def get_title(self) -> str:
     return self.title
 
@@ -20,3 +24,6 @@ class Project:
   
   def get_employees(self) -> list:
     return self.employees
+  
+  def get_tasks(self) -> list:
+    return self.tasks
