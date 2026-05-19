@@ -2,6 +2,7 @@ import unittest
 from src.company import Company
 from src.employee import Employee
 from src.project import Project
+from src.task import Task
 
 class TestAssignments(unittest.TestCase):
   def test_add_employee_to_company(self):
@@ -79,3 +80,16 @@ class TestAssignments(unittest.TestCase):
     company.add_employee(employee_1)
     with self.assertRaises(ValueError):
       company.add_employee(employee_1)
+
+  def test_add_task_to_project(self):
+    company = Company("W")
+    employee = Employee("João")
+    company.add_employee(employee)
+    project = Project("Site legal")
+    company.add_project(project)
+    project.add_employee(employee)
+
+    task = Task("Corrigir bug na tela inicial")
+    project.add_task(task)
+
+    self.assertEqual(task, project.get_tasks()[0])
