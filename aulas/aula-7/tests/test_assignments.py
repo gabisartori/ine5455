@@ -106,3 +106,16 @@ class TestAssignments(unittest.TestCase):
     task.assign_to(employee)
     self.assertEqual(employee, task.get_owner())
     self.assertEqual(task, employee.get_tasks()[0])
+  
+  def test_assign_task_to_employee_not_in_tasks_project(self):
+    company = Company("W")
+    employee = Employee("João")
+    project = Project("Site")
+    company.add_project(project)
+    company.add_employee(employee)
+    task = Task("Bug na tela inicial")
+    project.add_task(task)
+
+    with self.assertRaises(ValueError):
+      task.assign_to(employee)
+    
