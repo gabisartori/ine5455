@@ -38,3 +38,9 @@ class Task:
     if self.status != TaskStatus.OPEN:
       raise ValueError
     self.priority = priority
+  
+  def close(self):
+    if self.status == TaskStatus.CLOSED:
+      raise ValueError
+    
+    self.status = TaskStatus.CLOSED
