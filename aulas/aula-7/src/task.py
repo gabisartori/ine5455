@@ -33,3 +33,8 @@ class Task:
   
   def __gt__(self, other):
     return self.priority.value > other.priority.value
+  
+  def set_priority(self, priority):
+    if self.status != TaskStatus.OPEN:
+      raise ValueError
+    self.priority = priority
