@@ -8,3 +8,8 @@ class TestTaks(unittest.TestCase):
     major_task = Task("Criar módulo de segurança", TaskPriority.HIGH)
 
     self.assertTrue(major_task > minor_task)
+
+  def test_change_open_task_priority(self):
+    minor_to_major_task = Task("Coisa que eu não dei muita bola de cara", TaskPriority.LOW)
+    minor_to_major_task.set_priority(TaskPriority.MEDIAN)
+    self.assertEqual(TaskPriority.MEDIAN, minor_to_major_task.priority)
