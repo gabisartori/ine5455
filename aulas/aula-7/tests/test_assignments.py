@@ -139,4 +139,23 @@ class TestAssignments(unittest.TestCase):
 
     self.assertEqual(maria, refactoring.owner)
     self.assertEqual(refactoring, maria.get_tasks()[0])
+
+  def test_change_owner_of_closed_task(self):
+    w = Company("W")
+    john = Employee("João")
+    maria = Employee("Maria")
+    website = Project("Site de alunos")
+    refactoring = Task("Refatorar codebase", TaskPriority.LOW)
     
+    w.add_employee(john)
+    w.add_employee(maria)
+    w.add_project(website)
+    website.add_employee(john)
+    website.add_employee(maria)
+    website.add_task(refactoring)
+    
+    refactoring.assign_to(john)
+    refactoring.close()
+    with self.assertRaises(ValueError):
+      refactoring.assign_to(maria)
+
