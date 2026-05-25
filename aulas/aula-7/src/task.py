@@ -21,6 +21,7 @@ class Task:
     self.project = None
     self.priority = priority
     self.type = type
+    self.id = None
 
   def assign_to(self, employee):
     if employee not in self.project.get_employees():

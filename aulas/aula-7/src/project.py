@@ -14,6 +14,7 @@ class Project:
     employee.add_project(self)
  
   def add_task(self, task):
+    task.id = self.company.assign_task_id()
     self.tasks.append(task)
     task.project = self
 

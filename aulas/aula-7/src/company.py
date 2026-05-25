@@ -2,6 +2,7 @@ class Company:
   def __init__(self, name: str):
     self.name: str = name
     self.employees: list = []
+    self.task_id_counter = 0
   
   def get_name(self) -> str:
     return self.name
@@ -17,3 +18,10 @@ class Company:
 
   def get_employees(self) -> list:
     return self.employees
+  
+  def assign_task_id(self) -> int:
+    self.task_id_counter += 1
+    return self.task_id_counter
+  
+  def get_task_id_counter(self) -> int:
+    return self.task_id_counter
