@@ -2,7 +2,7 @@ import unittest
 
 from src.task import Task, TaskPriority, TaskType
 
-class TestTaks(unittest.TestCase):
+class TestTasks(unittest.TestCase):
   def test_task_priority(self):
     minor_task = Task("Refatorar página inicial", TaskPriority.LOW)
     major_task = Task("Criar módulo de segurança", TaskPriority.HIGH)
