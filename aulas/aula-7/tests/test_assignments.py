@@ -182,3 +182,27 @@ class TestAssignments(unittest.TestCase):
     self.assertEqual(create_security_system, website.get_tasks()[2])
     self.assertEqual(create_login_page, website.get_tasks()[3])
     self.assertEqual(4, len(website.get_tasks()))
+
+  def test_task_id(self):
+    w = Company("W")
+    john = Employee("João")
+    w.add_employee(john)
+    website = Project("Site legal")
+    w.add_project(website)
+    website.add_employee(john)
+
+    bug_home_screen = Task("Corrigir bug na tela inicial", TaskPriority.MEDIAN)
+    refactor_code_base = Task("Refatorar codebase", TaskPriority.LOW)
+    create_security_system = Task("Implementar método de segurança", TaskPriority.HIGH)
+    create_login_page = Task("Criar página de login", TaskPriority.HIGH)
+
+    website.add_task(bug_home_screen)
+    website.add_task(refactor_code_base)
+    website.add_task(create_security_system)
+    website.add_task(create_login_page)
+
+    self.assertEqual(1, bug_home_screen.id)
+    self.assertEqual(2, refactor_code_base.id)
+    self.assertEqual(3, create_security_system.id)
+    self.assertEqual(4, create_login_page.id)
+    self.assertEqual(4, w.get_task_id_counter())
