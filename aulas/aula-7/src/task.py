@@ -19,6 +19,8 @@ class Task:
   def assign_to(self, employee):
     if employee not in self.project.get_employees():
       raise ValueError
+    if self.status != TaskStatus.OPEN:
+      raise ValueError
     employee.add_task(self)
     self.owner = employee
 
