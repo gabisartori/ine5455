@@ -2,7 +2,7 @@ import unittest
 from src.company import Company
 from src.employee import Employee
 from src.project import Project
-from src.task import Task
+from src.task import Task, TaskPriority
 
 class TestAssignments(unittest.TestCase):
   def test_add_employee_to_company(self):
@@ -89,7 +89,7 @@ class TestAssignments(unittest.TestCase):
     company.add_project(project)
     project.add_employee(employee)
 
-    task = Task("Corrigir bug na tela inicial")
+    task = Task("Corrigir bug na tela inicial", TaskPriority.MEDIAN)
     project.add_task(task)
 
     self.assertEqual(task, project.get_tasks()[0])
@@ -100,7 +100,7 @@ class TestAssignments(unittest.TestCase):
     project = Project("Site")
     company.add_project(project)
     company.add_employee(employee)
-    task = Task("Bug na tela inicial")
+    task = Task("Bug na tela inicial", TaskPriority.MEDIAN)
     project.add_employee(employee)
     project.add_task(task)
 
@@ -114,9 +114,29 @@ class TestAssignments(unittest.TestCase):
     project = Project("Site")
     company.add_project(project)
     company.add_employee(employee)
-    task = Task("Bug na tela inicial")
+    task = Task("Bug na tela inicial", TaskPriority.MEDIAN)
     project.add_task(task)
 
     with self.assertRaises(ValueError):
       task.assign_to(employee)
+  
+  def test_change_task_owner(self):
+    w = Company("W")
+    john = Employee("João")
+    maria = Employee("Maria")
+    website = Project("Site de alunos")
+    refactoring = Task("Refatorar codebase", TaskPriority.LOW)
+    
+    w.add_employee(john)
+    w.add_employee(maria)
+    w.add_project(website)
+    website.add_employee(john)
+    website.add_employee(maria)
+    website.add_task(refactoring)
+    
+    refactoring.assign_to(john)
+    refactoring.assign_to(maria)
+
+    self.assertEqual(maria, refactoring.owner)
+    self.assertEqual(refactoring, maria.get_tasks()[0])
     
