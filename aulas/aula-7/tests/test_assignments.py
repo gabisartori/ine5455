@@ -159,7 +159,7 @@ class TestAssignments(unittest.TestCase):
     with self.assertRaises(ValueError):
       refactoring.assign_to(maria)
 
-  def test_add_task_to_project(self):
+  def test_add_multiple_tasks_to_project(self):
     w = Company("W")
     john = Employee("João")
     w.add_employee(john)
