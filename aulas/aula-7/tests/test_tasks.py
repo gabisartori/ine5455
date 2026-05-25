@@ -1,6 +1,6 @@
 import unittest
 
-from src.task import Task, TaskPriority
+from src.task import Task, TaskPriority, TaskType
 
 class TestTaks(unittest.TestCase):
   def test_task_priority(self):
@@ -19,3 +19,15 @@ class TestTaks(unittest.TestCase):
     minor_to_major_task.close()
     with self.assertRaises(ValueError):
       minor_to_major_task.set_priority(TaskPriority.HIGH)
+
+  def test_check_task_type_bug(self):
+    bug_fixing_task = Task("Corrigir bug na tela inicial", TaskPriority.MEDIAN, TaskType.BUG)
+    self.assertEqual(TaskType.BUG, bug_fixing_task.type)
+
+  def test_check_task_type_refactor(self):
+    refactoring_task = Task("Refatorar codebase", TaskPriority.MEDIAN, TaskType.REFACTOR)
+    self.assertEqual(TaskType.REFACTOR, refactoring_task.type)
+
+  def test_check_task_type_task(self):
+    task_task = Task("Criar sistema de segurança", TaskPriority.MEDIAN, TaskType.TASK)
+    self.assertEqual(TaskType.TASK, task_task.type)
