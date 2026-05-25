@@ -2,6 +2,7 @@ class Company:
   def __init__(self, name: str):
     self.name: str = name
     self.employees: list = []
+    self.projects: list = []
     self.task_id_counter = 0
   
   def get_name(self) -> str:
@@ -9,6 +10,7 @@ class Company:
 
   def add_project(self, project):
     project.company = self
+    self.projects.append(project)
   
   def add_employee(self, employee):
     if employee in self.employees:
@@ -25,3 +27,10 @@ class Company:
   
   def get_task_id_counter(self) -> int:
     return self.task_id_counter
+  
+  def get_task_by_id(self, id):
+    for project in self.projects:
+      for task in project.tasks:
+        if task.id == id:
+          return task
+    raise ValueError("Ocorrência não encontrada")
