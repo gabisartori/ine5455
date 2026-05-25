@@ -20,6 +20,12 @@ class TestTasks(unittest.TestCase):
     with self.assertRaises(ValueError):
       minor_to_major_task.set_priority(TaskPriority.HIGH)
 
+  def test_close_closed_task(self):
+    bug_fixing_task = Task("Corrigir Bug na tela inicial", TaskPriority.LOW)
+    bug_fixing_task.close()
+    with self.assertRaises(ValueError):
+      bug_fixing_task.close()
+
   def test_check_task_type_bug(self):
     bug_fixing_task = Task("Corrigir bug na tela inicial", TaskPriority.MEDIAN, TaskType.BUG)
     self.assertEqual(TaskType.BUG, bug_fixing_task.type)
