@@ -8,13 +8,19 @@ class TaskPriority(Enum):
   MEDIAN = 1
   HIGH = 2
 
+class TaskType(Enum):
+  BUG = 0
+  TASK = 1
+  REFACTOR = 2
+
 class Task:
-  def __init__(self, title: str, priority: TaskPriority):
+  def __init__(self, title: str, priority: TaskPriority, type = TaskType.TASK):
     self.title: str = title
     self.status: TaskStatus = TaskStatus.OPEN
     self.owner = None
     self.project = None
     self.priority = priority
+    self.type = type
 
   def assign_to(self, employee):
     if employee not in self.project.get_employees():
