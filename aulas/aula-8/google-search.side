@@ -1,0 +1,61 @@
+{
+  "id": "435eeb31-ad86-4f93-a5c3-48c76c0e3543",
+  "version": "2.0",
+  "name": "aula-8",
+  "url": "https://www.google.com",
+  "tests": [{
+    "id": "26500b34-3de8-4314-a078-a4313f715ced",
+    "name": "google-search",
+    "commands": [{
+      "id": "f23d68e1-5eef-4025-b540-edba002550f0",
+      "comment": "",
+      "command": "open",
+      "target": "/",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "5a92cdbe-3cb7-4c18-afd0-06f4259f6423",
+      "comment": "",
+      "command": "click",
+      "target": "id=APjFqb",
+      "targets": [
+        ["id=APjFqb", "id"],
+        ["name=q", "name"],
+        ["css=#APjFqb", "css:finder"],
+        ["xpath=//textarea[@id='APjFqb']", "xpath:attributes"],
+        ["xpath=//textarea", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "31b3b6a8-40b2-48b1-9da5-08b883ddf245",
+      "comment": "",
+      "command": "type",
+      "target": "id=APjFqb",
+      "targets": [
+        ["id=APjFqb", "id"],
+        ["name=q", "name"],
+        ["css=#APjFqb", "css:finder"],
+        ["xpath=//textarea[@id='APjFqb']", "xpath:attributes"],
+        ["xpath=//textarea", "xpath:position"]
+      ],
+      "value": "gabriel sartori rangel"
+    }, {
+      "id": "1fb22dce-46a4-4f37-a5a1-dbec7ab6972a",
+      "comment": "",
+      "command": "sendKeys",
+      "target": "id=APjFqb",
+      "targets": [],
+      "value": "${KEY_ENTER}"
+    }]
+  }],
+  "suites": [{
+    "id": "c5edd5a3-e286-46f1-af7e-2d2d28d33765",
+    "name": "Default Suite",
+    "persistSession": false,
+    "parallel": false,
+    "timeout": 300,
+    "tests": []
+  }],
+  "urls": ["https://www.google.com/"],
+  "plugins": []
+}
