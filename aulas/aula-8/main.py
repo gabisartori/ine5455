@@ -46,8 +46,14 @@ class TestCalculator(unittest.TestCase):
 
     self.key_clear = self.driver.find_element(By.CSS_SELECTOR, "button[value='C']")
 
+    self.history = self.driver.find_element(By.CSS_SELECTOR, "ul.tile__calc__col.tile__history")
+
   def tearDown(self):
     self.driver.quit()
+
+  def get_history_by_most_recent(self, nth):
+    return self.history.find_elements(By.TAG_NAME, "li")[nth].text
+
 
   def test_A_sum(self):
     """Somar dois números diferentes e verificar o resultado."""
@@ -83,6 +89,7 @@ class TestCalculator(unittest.TestCase):
 
   def test_D_three_different_operations(self):
     """Fazer três operações diferentes, verificar o resultado de cada uma delas, e verificar que as três operações aparecem no histórico."""
+    # 9 * 8 = 72
     self.key_9.click()
     self.key_times.click()
     self.key_8.click()
@@ -91,6 +98,7 @@ class TestCalculator(unittest.TestCase):
 
     self.key_clear.click()
 
+    # 93 / 31 = 3
     self.key_9.click()
     self.key_3.click()
     self.key_divide.click()
@@ -101,8 +109,14 @@ class TestCalculator(unittest.TestCase):
 
     self.key_clear.click()
 
+    # 7 - 5 = 2
     self.key_7.click()
     self.key_minus.click()
     self.key_5.click()
     self.key_equals.click()
     self.assertEqual("2", self.display.text)
+
+    # Verify history
+    self.assertEqual("9 × 8\n72", self.get_history_by_most_recent(2))
+    self.assertEqual("93 ÷ 31\n3", self.get_history_by_most_recent(1))
+    self.assertEqual("7 - 5\n2", self.get_history_by_most_recent(0))
