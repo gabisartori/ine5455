@@ -44,6 +44,7 @@ class TestCalculator(unittest.TestCase):
     self.key_divide = self.driver.find_element(By.CSS_SELECTOR, "button[value='÷']")
     self.key_equals = self.driver.find_element(By.CSS_SELECTOR, "button[value='=']")
 
+    self.key_clear = self.driver.find_element(By.CSS_SELECTOR, "button[value='C']")
 
   def tearDown(self):
     self.driver.quit()
@@ -56,12 +57,52 @@ class TestCalculator(unittest.TestCase):
     self.key_equals.click()
     self.assertEqual("15", self.display.text)
 
-  # def test_B_multiplication_and_division(self):
-  #   """Multiplicar dois números diferentes e em seguida dividir o resultado por 10 e verificar o resultado."""
-  #   pass
+  def test_B_multiplication_and_division(self):
+    """Multiplicar dois números diferentes e em seguida dividir o resultado por 10 e verificar o resultado."""
+    self.key_5.click()
+    self.key_times.click()
+    self.key_4.click()
+    self.key_divide.click()
+    self.key_1.click()
+    self.key_0.click()
+    self.key_equals.click()
 
-  # def test_C_subtraction_and_other_operation(self):
-  #   """Fazer duas operações diferentes (uma sendo subtração) e verificar o resultado da última operação."""
+    self.assertEqual("2", self.display.text)
 
-  # def test_D_three_different_operations(self):
-  #   """Fazer três operações diferentes, verificar o resultado de cada uma delas, e verificar que as três operações aparecem no histórico."""
+  def test_C_subtraction_and_other_operation(self):
+    """Fazer duas operações diferentes (uma sendo subtração) e verificar o resultado da última operação."""
+    self.key_6.click()
+    self.key_times.click()
+    self.key_7.click()
+    self.key_minus.click()
+    self.key_3.click()
+    self.key_4.click()
+    self.key_equals.click()
+
+    self.assertEqual("8", self.display.text)
+
+  def test_D_three_different_operations(self):
+    """Fazer três operações diferentes, verificar o resultado de cada uma delas, e verificar que as três operações aparecem no histórico."""
+    self.key_9.click()
+    self.key_times.click()
+    self.key_8.click()
+    self.key_equals.click()
+    self.assertEqual("72", self.display.text)
+
+    self.key_clear.click()
+
+    self.key_9.click()
+    self.key_3.click()
+    self.key_divide.click()
+    self.key_3.click()
+    self.key_1.click()
+    self.key_equals.click()
+    self.assertEqual("3", self.display.text)
+
+    self.key_clear.click()
+
+    self.key_7.click()
+    self.key_minus.click()
+    self.key_5.click()
+    self.key_equals.click()
+    self.assertEqual("2", self.display.text)
