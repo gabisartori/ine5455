@@ -4,3 +4,4 @@ mutants/
 target
 vscode
 htmlcov
+.DS_Store
