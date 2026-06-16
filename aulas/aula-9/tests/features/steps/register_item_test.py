@@ -1,5 +1,7 @@
 from behave import *
 from mercado_leilao import MercadoLeilao
+from produto import Produto
+from lance import Lance
 
 
 @given(u'o cadastro do usuario Ernani Cesar foi realizado')
@@ -9,30 +11,30 @@ def step_impl(context):
 
 @given(u'o nome do produto sofa')
 def step_impl(context):
-  context.produto.nome = "sofa"
+  context.produto_nome = "sofa"
 
 @given(u'a descricao do produto amarelo')
 def step_impl(context):
-  context.produto.descricao = "amarelo"
+  context.produto_descricao = "amarelo"
 
 @given(u'e o lance 100')
 def step_impl(context):
-  context.lance.valor = 100
+  context.lance_valor = 100
 
 
 @given(u'e o cpf do leiloador 055.761.919-00')
 def step_impl(context):
-  context.lance.dono = "055.761.919-00"
+  context.lance_dono = "055.761.919-00"
 
 
 @when(u'cadastrar o produto')
 def step_impl(context):
   try:
     context.mercado.cadastra_produto(
-      context.produto.nome,
-      context.produto.descricao,
-      context.lance.valor,
-      context.lance.dono,
+      context.produto_nome,
+      context.produto_descricao,
+      context.lance_valor,
+      context.lance_dono,
       1111
     )
     context.mensagem = "Produto cadastrado com sucesso"
@@ -50,12 +52,12 @@ def step_impl(context):
   context.mercado = MercadoLeilao()
   context.mercado.cadastra_usuario("Ernani Cesar", "Campus Universitario", "ernani.santos@posgrad.ufsc.br", "055.761.919-00")
   context.produto = Produto("sofa", "amarelo")
-  context.lance = Lance(100, "055.761.919-00")
+  context.lance_inicial = Lance(100, "055.761.919-00")
   context.mercado.cadastra_produto(
     context.produto.nome,
     context.produto.descricao,
-    context.lance.valor,
-    context.lance.dono,
+    context.lance_inicial .valor,
+    context.lance_inicial .dono,
     1111
   )
 
