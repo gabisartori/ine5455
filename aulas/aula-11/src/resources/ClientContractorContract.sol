@@ -1,61 +1,103 @@
-pragma solidity 0.8.0;
+pragma solidity ^0.8.0;
 
 contract ClientContractorContract {
-    
-    address owner = msg.sender; //dono do contrato é o criador
+
+    address public owner;
 
     enum Status { Created, InEffect, SuccessfulTermination, UnsuccessfulTermination }
-    enum ObligationStatus { Created, InEffect, Completed}
+    enum ObligationStatus { Created, InEffect, Completed }
 
-    Status status;
-    
-    string client;
-    string contractor;
-    int creationDate;
-    string memory[] public obligations;
-    ObligationStatus[] public obligation_status;
+    Status public status;
 
-    // INCOMPLETO
+    string public client;
+    string public contractor;
+    int public creationDate;
 
-    constructor( string memory _client, string memory _contractor, int _creationDate ) public {
+    // Store obligations and reference them by ID instead of relying on string comparison
+    struct Obligation {
+        string description;
+        ObligationStatus status;
+    }
+
+    Obligation[] public obligations;
+
+    constructor(
+        string memory _client,
+        string memory _contractor,
+        int _creationDate
+    ) {
+        owner = msg.sender;
         client = _client;
         contractor = _contractor;
-    	creationDate = _creationDate;
+        creationDate = _creationDate;
         status = Status.Created;
     }
 
     function add_obligation(string memory obligation) public {
-        obligations.push(obligation);
-        obligation_status.push(ObligationStatus.Created);
+        obligations.push(
+            Obligation({
+                description: obligation,
+                status: ObligationStatus.Created
+            })
+        );
     }
 
     function terminate() public {
-        bool has_incomplete = false;
-        for (uint256 i = 0; i < obligations.length; ) {
-            if (obligation_status[i] != ObligationStatus.Completed) {
-                has_incomplete = true;
+        bool hasIncomplete = false;
+
+        for (uint256 i = 0; i < obligations.length; i++) {
+            if (obligations[i].status != ObligationStatus.Completed) {
+                hasIncomplete = true;
+                break;
             }
         }
-        if (has_incomplete) {
+
+        if (hasIncomplete) {
             status = Status.UnsuccessfulTermination;
         } else {
             status = Status.SuccessfulTermination;
         }
     }
-    //SETTERS
-    
-   	function activate () public {  	
-    	status = Status.InEffect;
-        for (uint256 i = 0; i < obligations.length; ) {
-            obligation_status[i] = ObligationStatus.InEffect;
+
+    // SETTERS
+
+    function activate() public {
+        status = Status.InEffect;
+
+        for (uint256 i = 0; i < obligations.length; i++) {
+            obligations[i].status = ObligationStatus.InEffect;
         }
     }
 
+    /// Mark an obligation as completed using its ID/index.
+    function set_obligation_as_complete(string memory obligation) public {
+        bytes32 obligationHash = keccak256(bytes(obligation));
 
-    //GETTERS
-    
-    //view significa que nao tem transacao, nao precisa minerar (nao usa gas para executar)
-    
+        for (uint256 i = 0; i < obligations.length; i++) {
+            if (
+                keccak256(bytes(obligations[i].description)) == obligationHash
+            ) {
+                obligations[i].status = ObligationStatus.Completed;
+                return;
+            }
+        }
+
+        revert("Obligation not found");
+    }
+
+    // Optional helper getters
+
+    function getObligationsCount() public view returns (uint256) {
+        return obligations.length;
+    }
+
+    // GETTERS
+
+    function obligations(uint256) public view returns (
+        string memory description,
+        ObligationStatus status
+    );
+
     function getStatus() public view returns (Status) {
         return status;
     }
@@ -63,41 +105,28 @@ contract ClientContractorContract {
     function getClient() public view returns (string memory) {
         return client;
     }
-    
+
     function getCreationDate() public view returns (int) {
         return creationDate;
     }
 
-    function close() public returns (bool) {
+    function close() public pure returns (bool) {
         return true;
     }
 
-    function is_created() public returns (bool) {
+    function is_created() public view returns (bool) {
         return status == Status.Created;
     }
 
-    function is_in_effect() public returns (bool) {
+    function is_in_effect() public view returns (bool) {
         return status == Status.InEffect;
     }
 
-    function is_successful() public returns (bool) {
+    function is_successful() public view returns (bool) {
         return status == Status.SuccessfulTermination;
     }
-    
-    function is_unsuccessful() public returns (bool) {
+
+    function is_unsuccessful() public view returns (bool) {
         return status == Status.UnsuccessfulTermination;
     }
-
-    function set_obligation_as_complete(string memory obligation) public {
-        uint256 index = 0;
-        for (uint256 i = 0; i < obligations.length;) {
-            if (obligations[i] == obligation) {
-                index = i+1;
-            }
-        }
-        if (index > 0) {
-            obligation_status[index-1] = ObligationStatus.Completed;
-        }
-    }
-
 }

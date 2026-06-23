@@ -128,8 +128,15 @@ def step_impl(context):
 
 @then(u'todas as tarefas do contrato estão ativadas')
 def step_impl(context):
-    for status in smart_contract.obligation_status:
-        print(status)
+    count = smart_contract.functions.getObligationsCount().call()
+
+    obligations = [
+        smart_contract.functions.obligations(i).call()
+        for i in range(count)
+    ]
+
+    for obligation in obligations:
+        assert obligation[1] == 2
 
 
 @given(u'I activate the smart contract')
