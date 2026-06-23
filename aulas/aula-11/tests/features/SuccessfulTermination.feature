@@ -11,10 +11,10 @@ Given o contrato foi criado
   And obrigação do contratante Realizar o pagamento de 50% do serviço desenvolvido na assinatura do contrato
   And obrigação do contratante Realizar o pagamento de 50% do serviço desenvolvido trinta dias após o início dos trabalhos
   And o contrato foi criado
-  And o contrato foi ativado
+  And I activate the smart contract
 When o contrato foi fechado
-  And obrigação da contratada Prestar os serviços contratados está completa
-  And obrigação do contratante Realizar o pagamento de 50% do serviço desenvolvido na assinatura do contrato está completa
-  And obrigação do contratante Realizar o pagamento de 50% do serviço desenvolvido trinta dias após o início dos trabalhos está completa
+  And está completa obrigação da contratada Prestar os serviços contratados
+  And está completa obrigação do contratante Realizar o pagamento de 50% do serviço desenvolvido na assinatura do contrato
+  And está completa obrigação do contratante Realizar o pagamento de 50% do serviço desenvolvido trinta dias após o início dos trabalhos
 Then o estado do contrato é "Encerrado com Sucesso"
   
