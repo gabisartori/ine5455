@@ -3,10 +3,12 @@ Background:
 Given o contrato foi criado
   And o cliente AAA consultoria empresarial LTDA
   And o fornecedor BBB TECNOLOGIA LTDA
-  And escopo do contrato aplicativo
-  And Tarefa retirar os 3 cards da tela inicial
-  And Tarefa adptar o aplicativo para carregar conforme o cadastro da empresa do usuário logado
-  And Tarefa definir quais informações dinâmicas serão carregadas no aplicativo, por exemplo, labels, cores e outros. Apontas no aplicativo onde deve ser alterado
+  And data de criação 1
+  And obrigação da contratada Prestar os serviços contratados
+  And obrigação da contratada Enviar fatura e relatório das horas prestadas
+  And obrigação do contratante Indicar um colaborador responsável pelos contato
+  And obrigação do contratante Realizar o pagamento de 50% do serviço desenvolvido na assinatura do contrato
+  And obrigação do contratante Realizar o pagamento de 50% do serviço desenvolvido trinta dias após o início dos trabalhos
 
 Scenario: Create the SC_AAA_BBB contract
 Given as informações do contrato estão definidas
